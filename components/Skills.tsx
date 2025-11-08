@@ -5,7 +5,7 @@ import { SKILLS } from '../constants';
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 px-4 bg-white dark:bg-gray-800 transition-colors duration-300">
+    <section id="skills" className="py-20 px-4 bg-fuchsia-50 dark:bg-purple-950 transition-colors duration-300">
       <div className="container mx-auto">
         <SectionHeader
           title="Skills & Expertise"

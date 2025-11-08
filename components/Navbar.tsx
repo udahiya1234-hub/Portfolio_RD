@@ -25,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavLinkClick }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-lg dark:shadow-xl py-4 transition-colors duration-300 animate-fade-in-down">
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#hero" className="text-2xl font-bold text-indigo-700 dark:text-teal-400" onClick={() => handleLinkClick('hero')}>
+        <a href="#hero" className="text-2xl font-bold text-sky-700 dark:text-emerald-400" onClick={() => handleLinkClick('hero')}>
           {NAME.split(' ')[0]}
         </a>
 
@@ -35,15 +35,15 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavLinkClick }) => {
               key={link.id}
               href={`#${link.id}`}
               onClick={() => handleLinkClick(link.id)}
-              className={`text-lg font-medium relative group hover:text-indigo-700 dark:hover:text-teal-400 transition duration-300 ${
+              className={`text-lg font-medium relative group hover:text-sky-700 dark:hover:text-emerald-400 transition duration-300 ${
                 activeSection === link.id
-                  ? 'text-indigo-700 dark:text-teal-400'
-                  : 'text-gray-700 dark:text-gray-300'
+                  ? 'text-sky-700 dark:text-emerald-400'
+                  : 'text-gray-700 dark:text-zinc-300'
               }`}
               aria-current={activeSection === link.id ? 'page' : undefined}
             >
               {link.label}
-              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${activeSection === link.id ? 'scale-x-100' : ''}`}></span>
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-sky-600 dark:bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${activeSection === link.id ? 'scale-x-100' : ''}`}></span>
             </a>
           ))}
           <ThemeToggle />
@@ -51,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavLinkClick }) => {
 
         <div className="md:hidden flex items-center space-x-4">
           <ThemeToggle />
-          <button onClick={toggleMenu} className="text-gray-700 dark:text-gray-300 focus:outline-none" aria-expanded={isOpen}>
+          <button onClick={toggleMenu} className="text-gray-700 dark:text-zinc-300 focus:outline-none" aria-expanded={isOpen}>
             {isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,8 +94,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavLinkClick }) => {
               key={link.id}
               href={`#${link.id}`}
               onClick={() => handleLinkClick(link.id)}
-              className={`block px-6 py-3 text-lg font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ${
-                activeSection === link.id ? 'text-indigo-700 dark:text-teal-400 bg-indigo-50 dark:bg-gray-700' : ''
+              className={`block px-6 py-3 text-lg font-medium text-gray-700 dark:text-zinc-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ${
+                activeSection === link.id ? 'text-sky-700 dark:text-emerald-400 bg-sky-50 dark:bg-gray-700' : ''
               }`}
               aria-current={activeSection === link.id ? 'page' : undefined}
             >

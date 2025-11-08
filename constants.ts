@@ -34,7 +34,7 @@ export const SKILLS: Skill[] = [
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
         fill: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         fillRule: "evenodd",
@@ -52,7 +52,7 @@ export const SKILLS: Skill[] = [
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
         fill: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         d: "M6.41 18H3.59c-.49 0-.9-.33-.97-.81C2.52 16.58 2 15.35 2 12c0-3.35.52-4.58.62-5.19.07-.48.48-.81.97-.81h2.82c.49 0 .9.33.97.81.1.61.62 1.84.62 5.19 0 3.35-.52 4.58-.62 5.19-.07.48-.48.81-.97.81zM20.41 18h-2.82c-.49 0-.9-.33-.97-.81-.1-.61-.62-1.84-.62-5.19 0-3.35.52-4.58.62-5.19.07-.48.48-.81.97-.81h2.82c.49 0 .9.33.97.81.1.61.62 1.84.62 5.19 0 3.35-.52 4.58-.62 5.19-.07.48-.48.81-.97.81zM13 12c0-3.35-.52-4.58-.62-5.19-.07-.48-.48-.81-.97-.81h-2.82c-.49 0-.9.33-.97.81-.1.61-.62 1.84-.62 5.19 0 3.35.52 4.58.62 5.19.07.48.48.81.97.81h2.82c.49 0 .9-.33.97-.81.1-.61.62-1.84.62-5.19z"
@@ -68,7 +68,7 @@ export const SKILLS: Skill[] = [
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
         fill: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         fillRule: "evenodd",
@@ -88,7 +88,7 @@ export const SKILLS: Skill[] = [
         viewBox: "0 0 24 24",
         strokeWidth: 1.5,
         stroke: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         strokeLinecap: "round",
@@ -108,7 +108,7 @@ export const SKILLS: Skill[] = [
         viewBox: "0 0 24 24",
         strokeWidth: 1.5,
         stroke: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         strokeLinecap: "round",
@@ -126,7 +126,7 @@ export const SKILLS: Skill[] = [
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
         fill: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         fillRule: "evenodd",
@@ -144,7 +144,7 @@ export const SKILLS: Skill[] = [
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
         fill: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         fillRule: "evenodd",
@@ -162,7 +162,7 @@ export const SKILLS: Skill[] = [
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
         fill: "currentColor",
-        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+        className: "w-8 h-8 text-sky-600 dark:text-emerald-400",
       },
       React.createElement('path', {
         fillRule: "evenodd",

@@ -52,7 +52,7 @@ const App: React.FC = () => {
     <ThemeProvider>
       <div className="min-h-screen flex flex-col">
         <Navbar activeSection={activeSection} onNavLinkClick={handleNavLinkClick} />
-        <main className="flex-grow pt-[72px] md:pt-[80px] bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+        <main className="flex-grow pt-[72px] md:pt-[80px] transition-colors duration-300">
           <Hero onContactClick={() => handleNavLinkClick('contact')} />
           <About />
           <Skills />

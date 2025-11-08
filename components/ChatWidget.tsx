@@ -101,7 +101,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
     <div
       className={`fixed bottom-24 right-6 w-11/12 md:w-96 h-[70vh] max-h-[600px] z-[100]
                   bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl
-                  flex flex-col border border-gray-200 dark:border-gray-700
+                  flex flex-col border border-neutral-200 dark:border-gray-700
                   transition-all duration-300 ease-in-out transform scale-100 opacity-100`}
       role="dialog"
       aria-modal="true"
@@ -109,14 +109,14 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
     >
       <div
         className="flex justify-between items-center py-3 px-4 rounded-t-xl
-                   bg-indigo-600 dark:bg-teal-600 text-white"
+                   bg-sky-600 dark:bg-emerald-600 text-white"
       >
         <h3 id="chat-widget-title" className="text-xl font-bold">
           Chat with Rahul's AI
         </h3>
         <button
           onClick={onClose}
-          className="p-1 rounded-full hover:bg-indigo-700 dark:hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-teal-300 transition-colors duration-200"
+          className="p-1 rounded-full hover:bg-sky-700 dark:hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-emerald-300 transition-colors duration-200"
           aria-label="Close chat"
         >
           <svg
@@ -132,7 +132,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
         </button>
       </div>
 
-      <div className="flex-1 p-5 overflow-y-auto space-y-4 dark:text-gray-200 custom-scrollbar">
+      <div className="flex-1 p-5 overflow-y-auto space-y-4 dark:text-zinc-200 custom-scrollbar">
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -142,8 +142,8 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
               className={`max-w-[75%] px-4 py-2.5 shadow-sm relative
               ${
                 msg.role === 'user'
-                  ? 'bg-indigo-600 text-white dark:bg-indigo-700 dark:text-gray-100 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-md'
-                  : 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100 rounded-tl-xl rounded-tr-xl rounded-br-xl rounded-bl-md'
+                  ? 'bg-sky-600 text-white dark:bg-emerald-700 dark:text-neutral-100 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-md'
+                  : 'bg-neutral-200 text-gray-900 dark:bg-gray-700 dark:text-neutral-100 rounded-tl-xl rounded-tr-xl rounded-br-xl rounded-bl-md'
               }`}
             >
               {msg.isTyping ? (
@@ -164,24 +164,24 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
         <div ref={messagesEndRef} />
       </div>
 
-      <form onSubmit={handleSendMessage} className="p-4 border-t border-gray-200 dark:border-gray-700 flex bg-white dark:bg-gray-800 rounded-b-xl">
+      <form onSubmit={handleSendMessage} className="p-4 border-t border-neutral-200 dark:border-gray-700 flex bg-white dark:bg-gray-800 rounded-b-xl">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={isLoading ? 'Thinking...' : 'Ask me about Rahul...'}
-          className="flex-1 p-3 rounded-l-xl border border-gray-300 dark:border-gray-600
-                     bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                     focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-teal-400
-                     placeholder-gray-400 dark:placeholder-gray-400"
+          className="flex-1 p-3 rounded-l-xl border border-neutral-300 dark:border-gray-600
+                     bg-neutral-50 dark:bg-gray-700 text-gray-900 dark:text-neutral-100
+                     focus:outline-none focus:ring-2 focus:ring-sky-500 dark:focus:ring-emerald-400
+                     placeholder-gray-400 dark:placeholder-zinc-400"
           disabled={isLoading}
           aria-label="Chat input"
         />
         <button
           type="submit"
-          className="px-5 py-3 rounded-r-xl bg-indigo-600 hover:bg-indigo-700 text-white
-                     dark:bg-teal-500 dark:hover:bg-teal-600
-                     focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-teal-400
+          className="px-5 py-3 rounded-r-xl bg-sky-600 hover:bg-sky-700 text-white
+                     dark:bg-emerald-500 dark:hover:bg-emerald-600
+                     focus:outline-none focus:ring-2 focus:ring-sky-500 dark:focus:ring-emerald-400
                      disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
           disabled={isLoading || input.trim() === ''}
           aria-label="Send message"

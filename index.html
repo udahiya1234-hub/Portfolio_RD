@@ -12,13 +12,13 @@
     <style>
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: #f8fafc; /* light mode fallback */
-        color: #1f2937; /* light mode text */
+        background-color: #eff6ff; /* light mode fallback: blue-50 */
+        color: #1f2937; /* light mode text: gray-800 */
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
       }
       body.dark {
-        background-color: #0f172a; /* dark mode fallback */
-        color: #e0e7ff; /* dark mode text */
+        background-color: #0c0a09; /* dark mode fallback: stone-950 or close to blue-950/gray-900 base */
+        color: #e4e4e7; /* dark mode text: zinc-200 */
       }
 
       html {
@@ -79,30 +79,30 @@
       /* Custom scrollbar for chat widget */
       .custom-scrollbar {
         scrollbar-width: thin; /* For Firefox */
-        scrollbar-color: #818cf8 #e0e7ff; /* thumb color track color (light mode) */
+        scrollbar-color: #0ea5e9 #eff6ff; /* thumb color track color (light mode: sky-500, blue-50) */
       }
       .dark .custom-scrollbar {
-        scrollbar-color: #115e59 #1f2937; /* thumb color track color (dark mode) */
+        scrollbar-color: #059669 #0c0a09; /* thumb color track color (dark mode: emerald-600, stone-950) */
       }
       /* For Chrome, Safari, Opera */
       .custom-scrollbar::-webkit-scrollbar {
         width: 8px;
       }
       .custom-scrollbar::-webkit-scrollbar-track {
-        background: #e0e7ff; /* light-blue-50 */
+        background: #eff6ff; /* blue-50 */
         border-radius: 10px;
       }
       .dark .custom-scrollbar::-webkit-scrollbar-track {
-        background: #1f2937; /* gray-800 */
+        background: #0c0a09; /* stone-950 */
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #818cf8; /* indigo-300 */
+        background-color: #0ea5e9; /* sky-500 */
         border-radius: 10px;
-        border: 2px solid #e0e7ff; /* light-blue-50 */
+        border: 2px solid #eff6ff; /* blue-50 */
       }
       .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #115e59; /* teal-700 */
-        border: 2px solid #1f2937; /* gray-800 */
+        background-color: #059669; /* emerald-600 */
+        border: 2px solid #0c0a09; /* stone-950 */
       }
 
       /* Typing indicator animation */

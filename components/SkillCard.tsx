@@ -15,9 +15,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
     <div
       ref={ref}
       className={`
-        bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md dark:shadow-lg hover:shadow-xl dark:hover:shadow-2xl
+        bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md dark:shadow-lg hover:shadow-xl dark:hover:shadow-2xl
         transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center
-        border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-indigo-300 dark:focus-within:ring-teal-700
+        border border-neutral-100 dark:border-gray-800 focus-within:ring-4 focus-within:ring-sky-300 dark:focus-within:ring-emerald-700
         ${hasAnimated ? 'animate-fade-in-up' : 'opacity-0'}
       `}
       style={{ animationDelay: animationDelay }}
@@ -25,11 +25,11 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
       role="listitem" // Semantic role
       aria-label={`${skill.name} skill`}
     >
-      <div className="mb-4 text-indigo-600 dark:text-teal-400 group-hover:text-indigo-700 dark:group-hover:text-teal-300 transition-colors duration-300">
+      <div className="mb-4 text-sky-600 dark:text-emerald-400 group-hover:text-sky-700 dark:group-hover:text-emerald-300 transition-colors duration-300">
         {skill.icon}
       </div>
-      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">{skill.name}</h3>
-      <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
+      <h3 className="text-xl font-semibold text-gray-800 dark:text-neutral-100 mb-2">{skill.name}</h3>
+      <p className="text-gray-600 dark:text-zinc-300">{skill.description}</p>
     </div>
   );
 };

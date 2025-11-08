@@ -6,11 +6,11 @@ import useAnimateOnScroll from '../hooks/useAnimateOnScroll'; // Import the new 
 
 const Contact: React.FC = () => {
   const { theme } = useTheme();
-  const iconColorClass = theme === 'dark' ? 'text-teal-400' : 'text-indigo-600';
-  const bgColorClass = theme === 'dark' ? 'bg-gray-700' : 'bg-indigo-50';
-  const textColorClass = theme === 'dark' ? 'text-gray-50' : 'text-gray-800';
-  const paragraphColorClass = theme === 'dark' ? 'text-gray-300' : 'text-gray-700';
-  const ctaBgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50';
+  const iconColorClass = theme === 'dark' ? 'text-emerald-400' : 'text-sky-600';
+  const bgColorClass = theme === 'dark' ? 'bg-gray-800' : 'bg-white'; // Card background
+  const textColorClass = theme === 'dark' ? 'text-neutral-50' : 'text-gray-800'; // Card title color
+  const paragraphColorClass = theme === 'dark' ? 'text-zinc-300' : 'text-gray-700'; // Card paragraph color
+  const ctaBgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white'; // CTA block background
   const ctaShadowClass = theme === 'dark' ? 'shadow-xl' : 'shadow-md';
 
   // Refs and animations for contact info cards
@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
   const { ref: ctaRef, hasAnimated: ctaAnimated, animationDelay: ctaDelay } = useAnimateOnScroll<HTMLDivElement>(0);
 
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <section id="contact" className="py-20 px-4 bg-blue-50 dark:bg-blue-950 transition-colors duration-300">
       <div className="container mx-auto max-w-4xl">
         <SectionHeader
           title="Get in Touch"
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="flex items-center justify-center px-8 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-teal-700 transition duration-300 transform hover:scale-105"
+              className="flex items-center justify-center px-8 py-3 bg-sky-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-emerald-700 transition duration-300 transform hover:scale-105"
               aria-label="Send an email to Rahul Dahiya"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-2">
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
               href={CONTACT_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center px-8 py-3 border-2 border-indigo-600 dark:border-teal-500 text-indigo-600 dark:text-teal-500 text-lg font-semibold rounded-full shadow-lg hover:bg-indigo-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-teal-700 transition duration-300 transform hover:scale-105"
+              className="flex items-center justify-center px-8 py-3 border-2 border-sky-600 dark:border-emerald-500 text-sky-600 dark:text-emerald-500 text-lg font-semibold rounded-full shadow-lg hover:bg-sky-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-emerald-700 transition duration-300 transform hover:scale-105"
               aria-label="Connect with Rahul Dahiya on LinkedIn"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mr-2">
@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
                 href={CONTACT_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-8 py-3 border-2 border-indigo-600 dark:border-teal-500 text-indigo-600 dark:text-teal-500 text-lg font-semibold rounded-full shadow-lg hover:bg-indigo-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-teal-700 transition duration-300 transform hover:scale-105"
+                className="flex items-center justify-center px-8 py-3 border-2 border-sky-600 dark:border-emerald-500 text-sky-600 dark:text-emerald-500 text-lg font-semibold rounded-full shadow-lg hover:bg-sky-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-emerald-700 transition duration-300 transform hover:scale-105"
                 aria-label="View Rahul Dahiya's GitHub profile"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mr-2">

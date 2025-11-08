@@ -16,7 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     <div
       ref={ref}
       className={`
-        bg-white dark:bg-gray-700 rounded-xl shadow-md dark:shadow-lg border border-gray-100 dark:border-gray-700
+        bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-lg border border-neutral-100 dark:border-gray-800
         hover:shadow-lg dark:hover:shadow-xl transition-shadow duration-300 flex flex-col h-full
         ${hasAnimated ? 'animate-fade-in-up' : 'opacity-0'}
       `}
@@ -27,13 +27,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     >
       {/* Removed image display as requested */}
       <div className="p-8 flex flex-col flex-grow">
-        <h3 id={`project-title-${project.title.replace(/\s/g, '-')}`} className="text-2xl font-bold text-gray-800 dark:text-gray-50 mb-3">{project.title}</h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-5 flex-grow leading-relaxed">{project.description}</p>
+        <h3 id={`project-title-${project.title.replace(/\s/g, '-')}`} className="text-2xl font-bold text-gray-800 dark:text-neutral-50 mb-3">{project.title}</h3>
+        <p className="text-gray-700 dark:text-zinc-300 mb-5 flex-grow leading-relaxed">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-6" aria-label="Technologies used">
           {project.technologies.map((tech, techIndex) => (
             <span
               key={techIndex}
-              className="px-3 py-1 bg-indigo-100 dark:bg-gray-700 text-indigo-700 dark:text-teal-400 rounded-full text-sm font-medium
+              className="px-3 py-1 bg-sky-100 dark:bg-gray-700 text-sky-700 dark:text-emerald-400 rounded-full text-sm font-medium
                          flex items-center" // Added flex and items-center for icon alignment
             >
               {getTechIcon(tech)} {/* Render icon */}
@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-teal-700 transition duration-300 transform hover:scale-105 flex-grow"
+              className="flex items-center justify-center px-6 py-2 bg-sky-600 text-white font-medium rounded-full shadow-md hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-emerald-700 transition duration-300 transform hover:scale-105 flex-grow"
               aria-label={`View live demo of ${project.title}`}
             >
               <svg
@@ -72,7 +72,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               href={project.notebookLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center px-6 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-600 transition duration-300 flex-grow"
+              className="flex items-center justify-center px-6 py-2 border border-neutral-300 dark:border-gray-600 text-gray-700 dark:text-zinc-200 font-medium rounded-full hover:bg-neutral-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-neutral-200 dark:focus:ring-gray-600 transition duration-300 flex-grow"
               aria-label={`View notebook for ${project.title}`}
             >
               <svg
