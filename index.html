@@ -12,16 +12,18 @@
     <style>
       body {
         font-family: 'Poppins', sans-serif;
-        /* Changed from solid bg-color to a subtle gradient */
-        @apply bg-gray-50 text-gray-800 transition-colors duration-300;
+        background-color: #f8fafc; /* light mode fallback */
+        color: #1f2937; /* light mode text */
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
       }
+      body.dark {
+        background-color: #0f172a; /* dark mode fallback */
+        color: #e0e7ff; /* dark mode text */
+      }
+
       html {
         scroll-behavior: smooth;
         @apply transition-colors duration-300;
-      }
-      body.dark {
-        /* Dark mode gradient */
-        @apply bg-gray-950 text-gray-100;
       }
 
       /* Custom animations */

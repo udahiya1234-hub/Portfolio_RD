@@ -32,16 +32,14 @@ export const SKILLS: Skill[] = [
       'svg',
       {
         xmlns: "http://www.w3.org/2000/svg",
-        fill: "none",
         viewBox: "0 0 24 24",
-        strokeWidth: 1.5,
-        stroke: "currentColor",
+        fill: "currentColor",
         className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
       },
       React.createElement('path', {
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        d: "M17.25 6.75L21 12m0 0l-3.75 5.25M21 12H3"
+        fillRule: "evenodd",
+        d: "M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437-.92 3.795-.92 1.358 0 2.648.347 3.795.92.35.175.716-.11.716-.48V8.583a.75.75 0 00-.308-.606C18.293 7.398 15.264 6 12 6s-6.293 1.398-7.902 2.077a.75.75 0 00-.308.606v1.979c0 .37.366.655.716.48zM12 15a.75.75 0 00-.75.75v3.626a.75.75 0 001.5 0V15.75A.75.75 0 0012 15z",
+        clipRule: "evenodd"
       })
     ),
   },
@@ -52,16 +50,12 @@ export const SKILLS: Skill[] = [
       'svg',
       {
         xmlns: "http://www.w3.org/2000/svg",
-        fill: "none",
         viewBox: "0 0 24 24",
-        strokeWidth: 1.5,
-        stroke: "currentColor",
+        fill: "currentColor",
         className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
       },
       React.createElement('path', {
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        d: "M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0V2.25M3.75 6.375V2.25m10.125 3.375h-4.5c-.375 0-.75.375-.75.75v3.75c0 .375.375.75.75.75h4.5c.375 0 .75-.375.75-.75V7.125c0-.375-.375-.75-.75-.75Z"
+        d: "M6.41 18H3.59c-.49 0-.9-.33-.97-.81C2.52 16.58 2 15.35 2 12c0-3.35.52-4.58.62-5.19.07-.48.48-.81.97-.81h2.82c.49 0 .9.33.97.81.1.61.62 1.84.62 5.19 0 3.35-.52 4.58-.62 5.19-.07.48-.48.81-.97.81zM20.41 18h-2.82c-.49 0-.9-.33-.97-.81-.1-.61-.62-1.84-.62-5.19 0-3.35.52-4.58.62-5.19.07-.48.48-.81.97-.81h2.82c.49 0 .9.33.97.81.1.61.62 1.84.62 5.19 0 3.35-.52 4.58-.62 5.19-.07.48-.48.81-.97.81zM13 12c0-3.35-.52-4.58-.62-5.19-.07-.48-.48-.81-.97-.81h-2.82c-.49 0-.9.33-.97.81-.1.61-.62 1.84-.62 5.19 0 3.35.52 4.58.62 5.19.07.48.48.81.97.81h2.82c.49 0 .9-.33.97-.81.1-.61.62-1.84.62-5.19z"
       })
     ),
   },
@@ -72,6 +66,24 @@ export const SKILLS: Skill[] = [
       'svg',
       {
         xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 24 24",
+        fill: "currentColor",
+        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+      },
+      React.createElement('path', {
+        fillRule: "evenodd",
+        d: "M11.484 2.17a.75.75 0 00-1.06 0L2.25 9.006 3.744 10.5l-.369.369a1.125 1.125 0 000 1.592l3.598 3.597a1.125 1.125 0 001.592 0L11.484 12l7.199 7.199a1.125 1.125 0 001.592 0l3.598-3.597a1.125 1.125 0 000-1.592l-.369-.369 1.494-1.494-7.199-7.199a.75.75 0 00-1.06 0L12 5.612 11.484 2.17zm.354 1.253l-6.52 6.52L12 17.525l6.52-6.52-6.52-6.52zM12 10.5a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm0 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm0 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75z",
+        clipRule: "evenodd"
+      })
+    ),
+  },
+  {
+    name: "Machine Learning",
+    description: "Building predictive models & algorithms",
+    icon: React.createElement(
+      'svg',
+      {
+        xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
         viewBox: "0 0 24 24",
         strokeWidth: 1.5,
@@ -81,7 +93,45 @@ export const SKILLS: Skill[] = [
       React.createElement('path', {
         strokeLinecap: "round",
         strokeLinejoin: "round",
-        d: "M9.813 15.904L9.75 9.75m0 0l-3.249 3.249a1.5 1.5 0 01-2.071 0m2.071 0l-3.248 3.249A1.5 1.5 0 005.25 21H13.5V6.75m6 0h1.5m-1.5 0s-2.25-.75-3.75-.75A3.375 3.375 0 0018 3.375c-1.5 0-3 .627-3.75 1.758m-13.5 3.372a1.5 1.5 0 00-.042 2.15l.53 1.05C.894 13.195 1 14.32 1 15.5c0 1.42.32 2.764.922 3.972m.963-3.972a.75.75 0 00.034-1.06l-.53-.53V7.5c0-.622.09-.95.234-1.257m5.545 4.038l-4.721 4.721M21.75 12a1.5 1.5 0 010 3.75m-1.5-3.75h-4.875c-.621 0-1.125.504-1.125 1.125v.75c0 .621.504 1.125 1.125 1.125h4.875m-4.875-1.5h.008v.008h-.008v-.008Zm0 1.5h.008v.008h-.008v-.008Z"
+        d: "M9 3.75c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S11.25 1.5 10.5 1.5 9 2.5 9 3.75zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S11.25 10.5 10.5 10.5 9.75 11.5 9.75 12zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S11.25 19.5 10.5 19.5 9.75 20.5 9.75 20.25zM15 3.75c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S17.25 1.5 16.5 1.5 15 2.5 15 3.75zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S17.25 10.5 16.5 10.5 15.75 11.5 15.75 12zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S17.25 19.5 16.5 19.5 15.75 20.5 15.75 20.25zM6 3.75c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S7.25 1.5 6.5 1.5 6 2.5 6 3.75zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S7.25 10.5 6.5 10.5 6 11.5 6 12zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S7.25 19.5 6.5 19.5 6 20.5 6 20.25z"
+      })
+    ),
+  },
+  {
+    name: "Deep Learning",
+    description: "Neural networks & advanced AI architectures",
+    icon: React.createElement(
+      'svg',
+      {
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 1.5,
+        stroke: "currentColor",
+        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+      },
+      React.createElement('path', {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 3.75c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S11.25 1.5 10.5 1.5 9 2.5 9 3.75zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S11.25 10.5 10.5 10.5 9.75 11.5 9.75 12zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S11.25 19.5 10.5 19.5 9.75 20.5 9.75 20.25zM15 3.75c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S17.25 1.5 16.5 1.5 15 2.5 15 3.75zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S17.25 10.5 16.5 10.5 15.75 11.5 15.75 12zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S17.25 19.5 16.5 19.5 15.75 20.5 15.75 20.25zM6 3.75c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S7.25 1.5 6.5 1.5 6 2.5 6 3.75zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S7.25 10.5 6.5 10.5 6 11.5 6 12zm.75 8.25c0 1.25.75 2.25 1.5 2.25s1.5-1 1.5-2.25S7.25 19.5 6.5 19.5 6 20.5 6 20.25z"
+      })
+    ),
+  },
+  {
+    name: "NLP",
+    description: "Processing & understanding human language",
+    icon: React.createElement(
+      'svg',
+      {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 24 24",
+        fill: "currentColor",
+        className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
+      },
+      React.createElement('path', {
+        fillRule: "evenodd",
+        d: "M4.5 5.653c0-1.426 1.405-2.584 2.807-2.584h9.043c1.402 0 2.807 1.158 2.807 2.584v10.694c0 1.426-1.405 2.584-2.807 2.584H7.307c-1.402 0-2.807-1.158-2.807-2.584V5.653zM10.125 12h3.75a.75.75 0 000-1.5h-3.75a.75.75 0 000 1.5zM9 9.375a.75.75 0 00-.75.75v.75a.75.75 0 001.5 0V10.125a.75.75 0 00-.75-.75z",
+        clipRule: "evenodd"
       })
     ),
   },
@@ -92,16 +142,14 @@ export const SKILLS: Skill[] = [
       'svg',
       {
         xmlns: "http://www.w3.org/2000/svg",
-        fill: "none",
         viewBox: "0 0 24 24",
-        strokeWidth: 1.5,
-        stroke: "currentColor",
+        fill: "currentColor",
         className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
       },
       React.createElement('path', {
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        d: "M15 19.128a9.38 9.38 0 002.63-2.63M13 2.25l-3 1.5M10 2.25l-3 1.5M3 12h18M3 12l2.25 3M3 12l2.25-3m18 0l-2.25 3m2.25-3l-2.25-3m-15.75 9l4.725-2.736M4.5 12a7.5 7.5 0 0115 0m-4.725 3l-4.725 2.736M11.25 12h.008v.008h-.008V12zm-.375 0a.375.375 0 11-.75 0 .375 0 01.75 0z"
+        fillRule: "evenodd",
+        d: "M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.697 4.698a1.125 1.125 0 01-1.59 1.591l-4.696-4.697A8.25 8.25 0 012.25 10.5z",
+        clipRule: "evenodd"
       })
     ),
   },
@@ -112,21 +160,14 @@ export const SKILLS: Skill[] = [
       'svg',
       {
         xmlns: "http://www.w3.org/2000/svg",
-        fill: "none",
         viewBox: "0 0 24 24",
-        strokeWidth: 1.5,
-        stroke: "currentColor",
+        fill: "currentColor",
         className: "w-8 h-8 text-indigo-600 dark:text-teal-400",
       },
       React.createElement('path', {
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        d: "m10.5 21 5.25-11.25L21 21m-9-6h5.25"
-      }),
-      React.createElement('path', {
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        d: "M7.5 7.5l-1.5 5.25m-.75 3.75H2.25m10.5-11.25L21 21m-9-6h5.25"
+        fillRule: "evenodd",
+        d: "M12 2.25c-5.405 0-9.75 4.345-9.75 9.75s4.345 9.75 9.75 9.75 9.75-4.345 9.75-9.75S17.405 2.25 12 2.25zm-2.625 6.75a.75.75 0 100 1.5h1.75v1.75a.75.75 0 101.5 0v-1.75H14.625a.75.75 0 100-1.5h-1.75V7.125a.75.75 0 10-1.5 0v1.75H9.375z",
+        clipRule: "evenodd"
       })
     ),
   },
@@ -147,14 +188,16 @@ export const EDUCATION: EducationEntry[] = [
 export const PROJECTS: Project[] = [
   {
     title: "Pharmacy Sales Forecasting Dashboard & Analysis",
-    description:
-      "Developed an interactive dashboard for pharmaceutical sales forecasting, utilizing advanced data analysis, predictive modeling, and data visualization. This project involved in-depth analysis of sales data using Python, Pandas, and Plotly, followed by the creation of a Streamlit dashboard to visualize future sales trends, identify key patterns, and support data-driven decision-making for inventory and marketing strategies.",
+    description: `
+      Developed an interactive dashboard for pharmaceutical sales forecasting.
+      - Utilized Python, Pandas, and Plotly for in-depth data analysis and predictive modeling.
+      - Visualized sales trends to support data-driven decision-making for inventory and marketing strategies.
+    `,
     technologies: [
       "Python",
       "Data Analysis",
       "Predictive Modeling",
       "Dashboarding",
-      "Streamlit",
       "Google AI Studio",
       "Pandas",
       "Plotly",
@@ -165,8 +208,12 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Spam Detection Model Analysis",
-    description:
-      "Built and analyzed multiple machine learning models for spam detection using Python and scikit-learn. Implemented SVM, Random Forest, Gradient Boosting, and other algorithms, achieving 98.2% accuracy with the Initial SVM model. Created an interactive dashboard to visualize model performance metrics and comparisons.",
+    description: `
+      Built and analyzed multiple machine learning models for spam detection.
+      - Implemented SVM, Random Forest, and Gradient Boosting algorithms using Python and scikit-learn.
+      - Achieved 98.2% accuracy with the initial SVM model.
+      - Developed an interactive dashboard to visualize model performance metrics and comparisons.
+    `,
     technologies: [
       "Python",
       "Machine Learning",
@@ -180,17 +227,19 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Sentiment Analysis of Movie Reviews",
-    description:
-      "Built an interactive AI dashboard to analyze and visualize movie review sentiments in real-time. Implements machine learning models with Google AI Studio to classify reviews as positive or negative, demonstrating end-to-end NLP pipeline and data visualization skills.",
+    description: `
+      Developed an interactive AI dashboard to analyze and visualize movie review sentiments in real-time.
+      - Utilized machine learning models with Google AI Studio to classify reviews as positive or negative.
+      - Demonstrated end-to-end NLP pipeline and data visualization skills.
+    `,
     technologies: [
       "Python",
       "NLP",
       "Google AI Studio",
       "Machine Learning",
-      "Streamlit",
     ],
     liveLink: "https://movie-review-classification.vercel.app/", // Added live link here
-    notebookLink: "https://colab.research.google.com/drive/1HInNf4iNANjuSs6K2-Y-khlqlrL8JSN3?usp=sharing",
+    notebookLink: "https://colab.research.google.com/drive/1HInNf4iNANjuSs6K2-Y-khlqlqL8JSN3?usp=sharing",
   },
 ];
 

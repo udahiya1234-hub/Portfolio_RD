@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
   const { ref: ctaRef, hasAnimated: ctaAnimated, animationDelay: ctaDelay } = useAnimateOnScroll<HTMLDivElement>(0);
 
   return (
-    <section id="contact" className="py-20 px-4 bg-white dark:bg-gray-800 transition-colors duration-300">
+    <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto max-w-4xl">
         <SectionHeader
           title="Get in Touch"

@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
   const iconColorClass = theme === 'dark' ? 'text-teal-400' : 'text-indigo-600';
 
   return (
-    <section id="hero" className="relative flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 py-20 px-4 transition-colors duration-300">
+    <section id="hero" className="relative flex items-center justify-center min-h-screen bg-white dark:bg-gray-800 py-20 px-4 transition-colors duration-300">
       <div className="max-w-4xl text-center z-10">
         {AVAILABLE_FOR_FREELANCE && (
           <span className="inline-flex items-center rounded-full bg-indigo-100 dark:bg-gray-700 px-4 py-1 text-sm font-medium text-indigo-700 dark:text-teal-400 ring-1 ring-inset ring-indigo-700/10 dark:ring-teal-400 mb-6 animate-fade-in-down">

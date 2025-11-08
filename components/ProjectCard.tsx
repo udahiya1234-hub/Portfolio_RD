@@ -1,6 +1,7 @@
 import React from 'react';
 import { Project } from '../types';
 import useAnimateOnScroll from '../hooks/useAnimateOnScroll'; // Import the new hook
+import getTechIcon from '../utils/techIcons'; // Import the new utility
 
 interface ProjectCardProps {
   project: Project;
@@ -15,7 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     <div
       ref={ref}
       className={`
-        bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-lg border border-gray-100 dark:border-gray-700
+        bg-white dark:bg-gray-700 rounded-xl shadow-md dark:shadow-lg border border-gray-100 dark:border-gray-700
         hover:shadow-lg dark:hover:shadow-xl transition-shadow duration-300 flex flex-col h-full
         ${hasAnimated ? 'animate-fade-in-up' : 'opacity-0'}
       `}
@@ -24,6 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       role="article"
       aria-labelledby={`project-title-${project.title.replace(/\s/g, '-')}`}
     >
+      {/* Removed image display as requested */}
       <div className="p-8 flex flex-col flex-grow">
         <h3 id={`project-title-${project.title.replace(/\s/g, '-')}`} className="text-2xl font-bold text-gray-800 dark:text-gray-50 mb-3">{project.title}</h3>
         <p className="text-gray-700 dark:text-gray-300 mb-5 flex-grow leading-relaxed">{project.description}</p>
@@ -31,9 +33,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {project.technologies.map((tech, techIndex) => (
             <span
               key={techIndex}
-              className="px-3 py-1 bg-indigo-100 dark:bg-gray-700 text-indigo-700 dark:text-teal-400 rounded-full text-sm font-medium"
+              className="px-3 py-1 bg-indigo-100 dark:bg-gray-700 text-indigo-700 dark:text-teal-400 rounded-full text-sm font-medium
+                         flex items-center" // Added flex and items-center for icon alignment
             >
-              {tech}
+              {getTechIcon(tech)} {/* Render icon */}
+              {tech} {/* Keep text as fallback or label */}
             </span>
           ))}
         </div>
@@ -43,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-teal-700 transition duration-300 flex-grow"
+              className="flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-teal-700 transition duration-300 transform hover:scale-105 flex-grow"
               aria-label={`View live demo of ${project.title}`}
             >
               <svg

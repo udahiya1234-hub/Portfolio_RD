@@ -5,7 +5,7 @@ import useAnimateOnScroll from '../hooks/useAnimateOnScroll'; // Import the new 
 
 const Education: React.FC = () => {
   return (
-    <section id="education" className="py-20 px-4 bg-white dark:bg-gray-800 transition-colors duration-300">
+    <section id="education" className="py-20 px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto max-w-4xl">
         <SectionHeader title="Education" subtitle="My academic background" />
         <div className="space-y-8">
