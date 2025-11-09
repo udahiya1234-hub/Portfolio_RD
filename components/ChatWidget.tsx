@@ -44,11 +44,19 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
       } catch (error) {
         console.error('Error initializing Gemini Chat:', error);
         if (isMounted) {
+          let errorMessage = 'Oops! Failed to start the AI assistant. This might be due to network issues or an unconfigured API key.';
+          if (error instanceof Error) {
+            if (error.message.includes('API Key is not configured')) {
+              errorMessage = 'Oops! The Gemini API key is missing or not configured correctly in your deployment environment. Please ensure process.env.API_KEY is set.';
+            } else if (error.message.includes("Requested entity was not found.")) {
+              errorMessage += " Your API key might be invalid or expired. Please check your API key.";
+            }
+          }
           setMessages([
             {
               id: uuidv4(),
               role: 'model',
-              content: 'Oops! Failed to start the AI assistant. This might be due to an invalid API key or network issues. Please try again later.',
+              content: errorMessage,
             },
           ]);
         }
