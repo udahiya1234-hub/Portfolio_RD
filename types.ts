@@ -31,12 +31,3 @@ export interface ThemeContextType {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
 }
-
-export type ChatRole = 'user' | 'model';
-
-export interface ChatMessage {
-  id: string;
-  role: ChatRole;
-  content: string;
-  isTyping?: boolean; // For model responses to show typing indicator
-}

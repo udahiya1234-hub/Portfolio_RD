@@ -7,14 +7,11 @@ import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ChatButton from './components/ChatButton';
-import ChatWidget from './components/ChatWidget';
 import { NAV_LINKS } from './constants';
 import { ThemeProvider } from './context/ThemeContext';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const handleNavLinkClick = useCallback((id: string) => {
     const element = document.getElementById(id);
@@ -61,8 +58,6 @@ const App: React.FC = () => {
           <Contact />
         </main>
         <Footer />
-        <ChatButton isChatOpen={isChatOpen} toggleChat={() => setIsChatOpen(!isChatOpen)} />
-        <ChatWidget isChatOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
       </div>
     </ThemeProvider>
   );
