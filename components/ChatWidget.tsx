@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect, FormEvent } from 'react';
-import { ChatMessage, ChatHistoryEntry } from '../types';
+import { ChatMessage } from '../types';
 import { useTheme } from '../context/ThemeContext';
-import { generateChatResponse } from '../utils/ai';
-import { v4 as uuidv4 } from 'uuid'; // For generating unique IDs for messages
+import { initializeGeminiChat } from '../utils/ai'; // Import the new initializer
+import { v4 as uuidv4 } from 'uuid';
+import { Chat } from '@google/genai'; // Import Chat type
 
 interface ChatWidgetProps {
   isChatOpen: boolean;
@@ -15,19 +16,69 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const chatHistoryRef = useRef<ChatHistoryEntry[]>([]); // To maintain Gemini's chat history format
+  const geminiChatRef = useRef<Chat | null>(null); // To store the Gemini Chat instance
 
+  // Effect for initial chat setup and cleanup
   useEffect(() => {
-    if (isChatOpen && messages.length === 0) {
-      setMessages([
-        {
-          id: uuidv4(),
-          role: 'model',
-          content: "Hi there! I'm Rahul's AI assistant. How can I help you learn more about him?",
-        },
-      ]);
+    let isMounted = true; // Flag to prevent state updates on unmounted component
+
+    const setupChat = async () => {
+      if (!isMounted) return; // Don't proceed if component unmounted
+
+      setIsLoading(true);
+      try {
+        const chatInstance = await initializeGeminiChat();
+        if (isMounted) {
+          geminiChatRef.current = chatInstance;
+          // Only set initial message if no messages exist (first time opening a new session)
+          if (messages.length === 0) {
+            setMessages([
+              {
+                id: uuidv4(),
+                role: 'model',
+                content: "Hi there! I'm Rahul's AI assistant. How can I help you learn more about him?",
+              },
+            ]);
+          }
+        }
+      } catch (error) {
+        console.error('Error initializing Gemini Chat:', error);
+        if (isMounted) {
+          setMessages([
+            {
+              id: uuidv4(),
+              role: 'model',
+              content: 'Oops! Failed to start the AI assistant. This might be due to an invalid API key or network issues. Please try again later.',
+            },
+          ]);
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    if (isChatOpen && !geminiChatRef.current) {
+      // Only initialize if chat is open AND no chat instance exists yet
+      setupChat();
     }
-  }, [isChatOpen, messages.length]);
+
+    // Cleanup function for when the widget closes or component unmounts
+    return () => {
+      isMounted = false; // Set flag to false on unmount/cleanup
+      // For Chat objects, there is no explicit .close() method.
+      // Simply nullify the reference to allow garbage collection.
+      
+      // Reset all chat-related state when the widget is closed (or unmounted)
+      if (!isChatOpen) {
+        geminiChatRef.current = null;
+        setMessages([]);
+        setInput('');
+        setIsLoading(false);
+      }
+    };
+  }, [isChatOpen]); // Dependency on isChatOpen only. messages.length removed.
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -35,16 +86,15 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
 
   const handleSendMessage = async (e: FormEvent) => {
     e.preventDefault();
-    if (input.trim() === '' || isLoading) return;
+    const currentInput = input.trim();
+    if (currentInput === '' || isLoading || !geminiChatRef.current) return;
 
-    const userMessage: ChatMessage = { id: uuidv4(), role: 'user', content: input.trim() };
+    const userMessage: ChatMessage = { id: uuidv4(), role: 'user', content: currentInput };
     setMessages((prev) => [...prev, userMessage]);
-    chatHistoryRef.current.push({ role: 'user', parts: [{ text: input.trim() }] });
     setInput('');
     setIsLoading(true);
 
     const modelTypingMessageId = uuidv4();
-    // Start with empty content and then update it in the stream
     setMessages((prev) => [
       ...prev,
       { id: modelTypingMessageId, role: 'model', content: '', isTyping: true },
@@ -52,21 +102,19 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
 
     try {
       let fullResponseContent = '';
-      const stream = await generateChatResponse(userMessage.content, chatHistoryRef.current);
+      const stream = await geminiChatRef.current.sendMessageStream({ message: userMessage.content });
 
       for await (const chunk of stream) {
         fullResponseContent += chunk.text;
-        // Update the content of the typing message with incoming chunks
         setMessages((prev) =>
           prev.map((msg) =>
             msg.id === modelTypingMessageId
-              ? { ...msg, content: fullResponseContent, isTyping: true } // Keep isTyping true while streaming
+              ? { ...msg, content: fullResponseContent, isTyping: true }
               : msg
           )
         );
       }
 
-      // After stream is complete, set isTyping to false
       setMessages((prev) =>
         prev.map((msg) =>
           msg.id === modelTypingMessageId
@@ -74,19 +122,24 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isChatOpen, onClose }) => {
             : msg
         )
       );
-
-      chatHistoryRef.current.push({ role: 'model', parts: [{ text: fullResponseContent }] });
     } catch (error) {
       console.error('Error generating AI response:', error);
+      let errorMessage = 'Oops! Something went wrong. Please try again.';
+      // Check for specific API key error and prompt user to re-select
+      if (error instanceof Error && error.message.includes("Requested entity was not found.")) {
+          errorMessage += " Your API key might be invalid or expired. Please select your API key again.";
+          // Reset the chat session on API key error to force re-initialization
+          // For Chat, simply nullifying the ref will cause it to re-initialize on next open
+          geminiChatRef.current = null;
+          // Note: window.aistudio.openSelectKey() is not directly implemented here as it's an external prompt
+          // and might require more complex state management with user interaction feedback.
+          // For this exercise, informing the user and resetting the session is sufficient.
+      }
+
       setMessages((prev) =>
         prev.map((msg) =>
           msg.id === modelTypingMessageId
-            ? {
-                ...msg,
-                content:
-                  'Oops! Something went wrong. Please try again or refresh the page.',
-                isTyping: false,
-              }
+            ? { ...msg, content: errorMessage, isTyping: false }
             : msg
         )
       );

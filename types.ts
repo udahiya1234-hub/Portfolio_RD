@@ -40,8 +40,3 @@ export interface ChatMessage {
   content: string;
   isTyping?: boolean; // For model responses to show typing indicator
 }
-
-export interface ChatHistoryEntry {
-  role: ChatRole;
-  parts: { text: string }[];
-}
