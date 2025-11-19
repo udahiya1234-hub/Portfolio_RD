@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       {/* Removed image display as requested */}
       <div className="p-8 flex flex-col flex-grow">
         <h3 id={`project-title-${project.title.replace(/\s/g, '-')}`} className="text-2xl font-bold text-gray-800 dark:text-neutral-50 mb-3">{project.title}</h3>
-        <p className="text-gray-700 dark:text-zinc-300 mb-5 flex-grow leading-relaxed">{project.description}</p>
+        <p className="text-gray-700 dark:text-zinc-300 mb-5 flex-grow leading-relaxed whitespace-pre-line">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-6" aria-label="Technologies used">
           {project.technologies.map((tech, techIndex) => (
             <span
@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </span>
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 mt-auto">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-auto">
           {project.liveLink && project.liveLink !== '#' && (
             <a
               href={project.liveLink}
@@ -65,6 +65,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 />
               </svg>
               View Live
+            </a>
+          )}
+          {project.presentationLink && project.presentationLink !== '#' && (
+            <a
+              href={project.presentationLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-6 py-2 bg-amber-500 text-white font-medium rounded-full shadow-md hover:bg-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-300 dark:focus:ring-amber-700 transition duration-300 transform hover:scale-105 flex-grow"
+              aria-label={`View presentation for ${project.title}`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5 mr-2"
+              >
+                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+              </svg>
+              View Dashboard
             </a>
           )}
           {project.notebookLink && project.notebookLink !== '#' && (

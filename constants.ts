@@ -187,6 +187,24 @@ export const EDUCATION: EducationEntry[] = [
 // Projects
 export const PROJECTS: Project[] = [
   {
+    title: "RAG Chatbot & Analytics Dashboard",
+    description: `
+      Developed a sophisticated RAG (Retrieval-Augmented Generation) chatbot system capable of answering queries from custom knowledge bases.
+      - Features a comprehensive dashboard presentation that documents the entire development journey, architectural decisions, and performance analysis.
+      - Implemented using modern LLM frameworks to ensure accurate and context-aware responses.
+    `,
+    technologies: [
+      "Python",
+      "Streamlit",
+      "RAG",
+      "LangChain",
+      "LLM",
+      "Generative AI",
+    ],
+    liveLink: "https://ragproject-rahul.streamlit.app/",
+    presentationLink: "https://rag-presentation.vercel.app/",
+  },
+  {
     title: "Pharmacy Sales Forecasting Dashboard & Analysis",
     description: `
       Developed an interactive dashboard for pharmaceutical sales forecasting.

@@ -30,6 +30,8 @@ const getTechIcon = (techName: string) => {
       );
     case 'generative ai':
     case 'google ai studio':
+    case 'llm':
+    case 'rag':
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +46,7 @@ const getTechIcon = (techName: string) => {
     case 'data visualization':
     case 'dashboarding':
     case 'plotly':
-    case 'pandas': // Pandas as a data analysis tool
+    case 'pandas':
       return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={commonClasses}>
           <path fillRule="evenodd" d="M2.25 13.5A.75.75 0 013 12.75h6.75a.75.75 0 01.75.75v6.75a.75.75 0 01-.75.75H3a.75.75 0 01-.75-.75v-6.75zM4.5 13.5V6a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75zm6-7.5a.75.75 0 00-.75.75v12a.75.75 0 00.75.75h.75a.75.75 0 00.75-.75V6.75a.75.75 0 00-.75-.75h-.75zm6-1.5a.75.75 0 00-.75.75V12a.75.75 0 00.75.75h.75a.75.75 0 00.75-.75V5.25a.75.75 0 00-.75-.75h-.75z" clipRule="evenodd" />
@@ -62,6 +64,7 @@ const getTechIcon = (techName: string) => {
         </svg>
       );
     case 'nlp':
+    case 'langchain':
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -72,6 +75,12 @@ const getTechIcon = (techName: string) => {
           <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.405-2.584 2.807-2.584h9.043c1.402 0 2.807 1.158 2.807 2.584v10.694c0 1.426-1.405 2.584-2.807 2.584H7.307c-1.402 0-2.807-1.158-2.807-2.584V5.653zM10.125 12h3.75a.75.75 0 000-1.5h-3.75a.75.75 0 000 1.5zM9 9.375a.75.75 0 00-.75.75v.75a.75.75 0 001.5 0V10.125a.75.75 0 00-.75-.75z" clipRule="evenodd" />
         </svg>
       );
+    case 'streamlit':
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={commonClasses}>
+                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zm-4.07 2.53a.75.75 0 010-1.06l1.591-1.591a.75.75 0 111.06 1.06l-1.59 1.591a.75.75 0 01-1.061 0zm16.14 0a.75.75 0 010-1.06l1.591-1.591a.75.75 0 111.06 1.06l-1.59 1.591a.75.75 0 01-1.06 0zM4.5 12a7.5 7.5 0 1115 0 7.5 7.5 0 01-15 0z" />
+            </svg>
+        )
     default:
       return null;
   }

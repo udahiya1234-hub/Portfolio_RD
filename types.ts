@@ -20,6 +20,7 @@ export interface Project {
   technologies: string[];
   liveLink?: string;
   notebookLink?: string;
+  presentationLink?: string;
 }
 
 export interface NavLink {
