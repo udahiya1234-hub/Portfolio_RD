@@ -3,28 +3,20 @@ import React from 'react';
 const iconClasses = "w-4 h-4 mr-1 inline-block align-middle"; // Smaller icons, align with text
 
 const getTechIcon = (techName: string) => {
-  const commonClasses = iconClasses; // Use commonClasses for all icons for consistency
+  if (!techName) return null;
+  
+  const commonClasses = iconClasses; 
 
   switch (techName.toLowerCase()) {
     case 'python':
       return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className={commonClasses}
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={commonClasses}>
           <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437-.92 3.795-.92 1.358 0 2.648.347 3.795.92.35.175.716-.11.716-.48V8.583a.75.75 0 00-.308-.606C18.293 7.398 15.264 6 12 6s-6.293 1.398-7.902 2.077a.75.75 0 00-.308.606v1.979c0 .37.366.655.716.48zM12 15a.75.75 0 00-.75.75v3.626a.75.75 0 001.5 0V15.75A.75.75 0 0012 15z" clipRule="evenodd" />
         </svg>
       );
     case 'sql':
       return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className={commonClasses}
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={commonClasses}>
           <path d="M6.41 18H3.59c-.49 0-.9-.33-.97-.81C2.52 16.58 2 15.35 2 12c0-3.35.52-4.58.62-5.19.07-.48.48-.81.97-.81h2.82c.49 0 .9.33.97.81.1.61.62 1.84.62 5.19 0 3.35-.52 4.58-.62 5.19-.07.48-.48.81-.97.81zM20.41 18h-2.82c-.49 0-.9-.33-.97-.81-.1-.61-.62-1.84-.62-5.19 0-3.35.52-4.58.62-5.19.07-.48.48-.81.97-.81h2.82c.49 0 .9.33.97.81.1.61.62 1.84.62 5.19 0 3.35-.52 4.58-.62 5.19-.07.48-.48.81-.97.81zM13 12c0-3.35-.52-4.58-.62-5.19-.07-.48-.48-.81-.97-.81h-2.82c-.49 0-.9.33-.97.81-.1.61-.62 1.84-.62 5.19 0 3.35.52 4.58.62 5.19.07.48.48.81.97.81h2.82c.49 0 .9-.33.97-.81.1-.61.62-1.84.62-5.19z" />
         </svg>
       );
@@ -33,12 +25,7 @@ const getTechIcon = (techName: string) => {
     case 'llm':
     case 'rag':
       return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className={commonClasses}
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={commonClasses}>
           <path fillRule="evenodd" d="M11.484 2.17a.75.75 0 00-1.06 0L2.25 9.006 3.744 10.5l-.369.369a1.125 1.125 0 000 1.592l3.598 3.597a1.125 1.125 0 001.592 0L11.484 12l7.199 7.199a1.125 1.125 0 001.592 0l3.598-3.597a1.125 1.125 0 000-1.592l-.369-.369 1.494-1.494-7.199-7.199a.75.75 0 00-1.06 0L12 5.612 11.484 2.17zm.354 1.253l-6.52 6.52L12 17.525l6.52-6.52-6.52-6.52zM12 10.5a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm0 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm0 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75z" clipRule="evenodd" />
         </svg>
       );
@@ -66,12 +53,7 @@ const getTechIcon = (techName: string) => {
     case 'nlp':
     case 'langchain':
       return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className={commonClasses}
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={commonClasses}>
           <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.405-2.584 2.807-2.584h9.043c1.402 0 2.807 1.158 2.807 2.584v10.694c0 1.426-1.405 2.584-2.807 2.584H7.307c-1.402 0-2.807-1.158-2.807-2.584V5.653zM10.125 12h3.75a.75.75 0 000-1.5h-3.75a.75.75 0 000 1.5zM9 9.375a.75.75 0 00-.75.75v.75a.75.75 0 001.5 0V10.125a.75.75 0 00-.75-.75z" clipRule="evenodd" />
         </svg>
       );

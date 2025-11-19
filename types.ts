@@ -3,7 +3,7 @@ import * as React from 'react';
 export interface Skill {
   name: string;
   description: string;
-  icon: React.JSX.Element;
+  iconKey: string;
 }
 
 export interface EducationEntry {
@@ -21,6 +21,7 @@ export interface Project {
   liveLink?: string;
   notebookLink?: string;
   presentationLink?: string;
+  image: string; // Added image property
 }
 
 export interface NavLink {

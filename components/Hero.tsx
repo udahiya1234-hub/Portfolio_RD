@@ -1,131 +1,161 @@
-import React from 'react';
-import { NAME, TITLE, SHORT_BIO, AVAILABLE_FOR_FREELANCE, CONTACT_INFO } from '../constants';
-import { useTheme } from '../context/ThemeContext'; // Import useTheme
+
+import React, { useState, useEffect } from 'react';
+import { NAME, SHORT_BIO, AVAILABLE_FOR_FREELANCE, CONTACT_INFO, PROFILE_IMAGE } from '../constants';
+import { useTheme } from '../context/ThemeContext';
 
 interface HeroProps {
   onContactClick: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
-  const { theme } = useTheme(); // Use the theme context
+const TITLES = [
+  "Data Science Enthusiast",
+  "Python Developer",
+  "Machine Learning Engineer",
+  "AI Solution Builder"
+];
 
-  // Dynamic icon colors based on theme
-  const iconColorClass = theme === 'dark' ? 'text-emerald-400' : 'text-sky-600';
+const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
+  const { theme } = useTheme();
+  const [text, setText] = useState('');
+  const [delta, setDelta] = useState(150);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [imgError, setImgError] = useState(false);
+
+  // Typing Effect Logic
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => { clearInterval(ticker) };
+  }, [text, delta]);
+
+  const tick = () => {
+    let i = loopNum % TITLES.length;
+    let fullText = TITLES[i];
+    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+
+    setText(updatedText);
+
+    if (isDeleting) {
+      setDelta(prevDelta => prevDelta / 2);
+    }
+
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setDelta(2000); // Pause at end of word
+    } else if (isDeleting && updatedText === '') {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setDelta(150); // Reset speed for new word
+    } else {
+         if(!isDeleting) setDelta(100 + Math.random() * 50);
+    }
+  };
+
+  // Fallback avatar if image fails to load
+  const profileSrc = imgError 
+    ? `https://ui-avatars.com/api/?name=${encodeURIComponent(NAME)}&background=0284c7&color=fff&size=256&bold=true`
+    : PROFILE_IMAGE;
 
   return (
-    <section id="hero" className="relative flex items-center justify-center min-h-screen bg-blue-50 dark:bg-blue-950 py-20 px-4 transition-colors duration-300">
-      <div className="max-w-4xl text-center z-10">
-        {AVAILABLE_FOR_FREELANCE && (
-          <span className="inline-flex items-center rounded-full bg-sky-100 dark:bg-gray-700 px-4 py-1 text-sm font-medium text-sky-700 dark:text-emerald-400 ring-1 ring-inset ring-sky-700/10 dark:ring-emerald-400 mb-6 animate-fade-in-down">
-            Available for Freelance Work
-          </span>
-        )}
-        <h1 className="text-6xl md:text-7xl font-extrabold text-gray-900 dark:text-neutral-50 leading-tight mb-4 animate-fade-in-up">
-          {NAME}
-        </h1>
-        <p className="text-2xl md:text-3xl font-semibold text-sky-700 dark:text-emerald-400 mb-8 animate-fade-in-up delay-200">
-          {TITLE}
-        </p>
-        <p className="text-lg md:text-xl text-gray-700 dark:text-zinc-300 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-400">
-          {SHORT_BIO}
-        </p>
-        <button
-          onClick={onContactClick}
-          className="px-8 py-3 bg-sky-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-emerald-700 transition duration-300 transform hover:scale-105 animate-fade-in-up delay-600"
-          aria-label="Get in touch"
-        >
-          Get in Touch
-        </button>
-
-        <div className="flex flex-wrap justify-center items-center gap-6 mt-12 text-gray-600 dark:text-zinc-400 animate-fade-in-up delay-800">
-          <div className="flex items-center space-x-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className={`w-5 h-5 ${iconColorClass}`}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25V1.375a2.25 2.25 0 00-2.25-2.25h-2.25ZM20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0V2.25M3.75 6.375V2.25m10.125 3.375h-4.5c-.375 0-.75.375-.75.75v3.75c0 .375.375.75.75.75h4.5c.375 0 .75-.375.75-.75V7.125c0-.375-.375-.75-.75-.75Z"
-              />
-            </svg>
-            <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-sky-700 dark:hover:text-emerald-400 transition-colors duration-200">{CONTACT_INFO.phone}</a>
-          </div>
-          <div className="flex items-center space-x-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className={`w-5 h-5 ${iconColorClass}`}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-              />
-            </svg>
-            <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-sky-700 dark:hover:text-emerald-400 transition-colors duration-200">{CONTACT_INFO.email}</a>
-          </div>
-          <div className="flex items-center space-x-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className={`w-5 h-5 ${iconColorClass}`}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-              />
-            </svg>
-            <span className="cursor-default">{CONTACT_INFO.location}</span>
-          </div>
-          {CONTACT_INFO.github && (
-            <div className="flex items-center space-x-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className={`w-5 h-5 ${iconColorClass}`}
-              >
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.083-.726.083-.726 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.305 3.492.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.381 1.235-3.221-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3.0.966-.262 1.98-.392 3-.398 1.02.006 2.035.136 3 .398 2.288-.322 3.295.0 3.295.0.645 1.653.24 2.873.105 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.564 22.179 24 17.607 24 12c0-6.627-5.373-12-12-12z" />
-              </svg>
-              <a href={CONTACT_INFO.github} target="_blank" rel="noopener noreferrer" className="hover:text-sky-700 dark:hover:text-emerald-400 transition-colors duration-200">GitHub</a>
-            </div>
-          )}
-        </div>
+    <section id="hero" className="relative flex items-center min-h-screen overflow-hidden pt-20 md:pt-0">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="blob bg-sky-300/30 dark:bg-sky-900/20 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2 blur-3xl animate-float"></div>
+        <div className="blob bg-purple-300/30 dark:bg-purple-900/20 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
-      <div className="absolute bottom-10 animate-bounce">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-8 h-8 text-sky-600 dark:text-emerald-500"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-          />
-        </svg>
+
+      <div className="container mx-auto px-6 z-10">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
+          
+          {/* Left Column: Text */}
+          <div className="flex-1 text-center md:text-left">
+            
+             {/* Availability Badge */}
+            {AVAILABLE_FOR_FREELANCE && (
+              <div className="animate-fade-in-down mb-6 flex justify-center md:justify-start">
+                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-medium bg-white/50 dark:bg-white/5 backdrop-blur-sm text-sky-700 border border-sky-200 dark:text-emerald-300 dark:border-emerald-800/50 shadow-sm">
+                  <span className="flex w-2 h-2 bg-sky-500 dark:bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
+                  Available for Freelance Work
+                </span>
+              </div>
+            )}
+
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in-up">
+              <span className="block text-gray-900 dark:text-white mb-2">Hello, I'm</span>
+              <span className="text-gradient block mt-2">{NAME}</span>
+            </h1>
+
+             <div className="h-8 mb-6 animate-fade-in-up delay-200 flex items-center justify-center md:justify-start">
+                <span className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300">
+                    I am a <span className="text-sky-600 dark:text-emerald-400 font-bold">{text}</span>
+                    <span className="border-r-2 border-gray-400 dark:border-gray-500 ml-1 animate-pulse"></span>
+                </span>
+            </div>
+
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed animate-fade-in-up delay-300 max-w-2xl mx-auto md:mx-0">
+              {SHORT_BIO}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-400 justify-center md:justify-start">
+              <button
+                onClick={onContactClick}
+                className="px-8 py-4 bg-sky-600 hover:bg-sky-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white text-lg font-semibold rounded-full shadow-lg shadow-sky-500/30 dark:shadow-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
+              >
+                Let's Talk
+              </button>
+              <a
+                href="#projects"
+                className="px-8 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-emerald-500 text-lg font-semibold rounded-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              >
+                View Work
+              </a>
+            </div>
+
+             <div className="flex gap-6 mt-10 animate-fade-in-up delay-500 justify-center md:justify-start">
+               <a href={CONTACT_INFO.linkedin} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-sky-600 dark:hover:text-emerald-400 transition-colors">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
+                  </svg>
+               </a>
+               <a href={CONTACT_INFO.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-sky-600 dark:hover:text-emerald-400 transition-colors">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                  </svg>
+               </a>
+            </div>
+          </div>
+
+          {/* Right Column: Image */}
+          <div className="flex-1 relative flex justify-center animate-scale-in delay-200">
+             <div className="relative w-72 h-72 md:w-96 md:h-96">
+                {/* Decorative circles */}
+                <div className="absolute inset-0 rounded-full border-2 border-dashed border-sky-200 dark:border-gray-700 animate-spin-slow" style={{ animationDuration: '15s' }}></div>
+                <div className="absolute inset-4 rounded-full border border-gray-200 dark:border-gray-800"></div>
+                
+                {/* Image Container */}
+                <div className="absolute inset-6 rounded-full overflow-hidden shadow-2xl ring-4 ring-white dark:ring-gray-800">
+                   <img 
+                     src={profileSrc} 
+                     alt={NAME}
+                     onError={() => setImgError(true)}
+                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                   />
+                </div>
+
+                {/* Floating Badges */}
+                <div className="absolute top-10 -right-4 bg-white dark:bg-gray-800 p-3 rounded-2xl shadow-lg animate-float" style={{ animationDelay: '1s' }}>
+                    <span className="text-2xl">🚀</span>
+                </div>
+                <div className="absolute bottom-10 -left-4 bg-white dark:bg-gray-800 p-3 rounded-2xl shadow-lg animate-float" style={{ animationDelay: '2s' }}>
+                    <span className="text-2xl">📊</span>
+                </div>
+             </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

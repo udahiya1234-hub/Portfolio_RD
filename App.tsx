@@ -16,7 +16,14 @@ const App: React.FC = () => {
   const handleNavLinkClick = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 80; // Adjust this value based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   }, []);
 
@@ -39,7 +46,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call on mount to set initial active section
+    // Call once on mount to set initial active section
+    handleScroll(); 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -47,7 +55,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
         <Navbar activeSection={activeSection} onNavLinkClick={handleNavLinkClick} />
         <main className="flex-grow pt-[72px] md:pt-[80px] transition-colors duration-300">
           <Hero onContactClick={() => handleNavLinkClick('contact')} />
