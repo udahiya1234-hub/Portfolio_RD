@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { NAV_LINKS } from './constants';
 import { ThemeProvider } from './context/ThemeContext';
+import { Analytics } from '@vercel/analytics/react';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -55,9 +57,9 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-500">
         <Navbar activeSection={activeSection} onNavLinkClick={handleNavLinkClick} />
-        <main className="flex-grow pt-[72px] md:pt-[80px] transition-colors duration-300">
+        <main className="flex-grow pt-[72px] md:pt-[80px]">
           <Hero onContactClick={() => handleNavLinkClick('contact')} />
           <About />
           <Skills />
@@ -66,6 +68,7 @@ const App: React.FC = () => {
           <Contact />
         </main>
         <Footer />
+        <Analytics />
       </div>
     </ThemeProvider>
   );
