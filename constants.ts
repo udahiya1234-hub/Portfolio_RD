@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     description: "A cutting-edge Retrieval-Augmented Generation (RAG) chatbot capable of answering queries from custom knowledge bases. Deployed on Streamlit for real-time, context-aware interaction.",
     technologies: ["Generative AI", "LangChain", "Python", "Streamlit", "Vector DB"],
     liveLink: "https://ragproject-rahul.streamlit.app/",
-    presentationLink: "https://rag-presentation.vercel.app/",
+    presentationLink: "https://rag-presentation-dashboard.vercel.app/",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000", 
   },
   {
