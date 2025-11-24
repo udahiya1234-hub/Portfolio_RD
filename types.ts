@@ -21,7 +21,8 @@ export interface Project {
   liveLink?: string;
   notebookLink?: string;
   presentationLink?: string;
-  image: string; // Added image property
+  dashboardLink?: string;
+  image: string;
 }
 
 export interface NavLink {

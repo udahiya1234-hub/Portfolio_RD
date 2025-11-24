@@ -8,15 +8,26 @@ export const SHORT_BIO =
   "Mathematics graduate passionate about turning data into meaningful business insights. Building expertise in Python, SQL, and AI to solve real-world problems.";
 export const AVAILABLE_FOR_FREELANCE = true;
 
+// About Section
+export const ABOUT_ME_PARAGRAPH_1 = "I am a driven Mathematics graduate who found a passion in the world of Data Science. My academic background has equipped me with strong analytical skills and a logical approach to problem-solving, which I now apply to extracting insights from complex datasets.";
+export const ABOUT_ME_PARAGRAPH_2 = "Currently, I am expanding my expertise in Python, Machine Learning, and Generative AI. I love building practical applications, from predictive models to intelligent chatbots, and I am eager to contribute to impactful data-driven projects.";
+
 // Images
 export const PROFILE_IMAGE = "https://i.ibb.co/XfMkh7hq/profile.png"; 
 export const ABOUT_IMAGE = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200";
 
-// About Me Section
-export const ABOUT_ME_PARAGRAPH_1 =
-  "I'm Rahul Dahiya, a Data Science enthusiast from Delhi with a B.Sc. in Mathematics (Honours). My background in maths taught me to analyze patterns and connect logic to real-world problems.";
-export const ABOUT_ME_PARAGRAPH_2 =
-  "I'm currently pursuing a Data Science course from Career 247, where I work on projects using Python, SQL, Excel, and Generative AI tools like ChatGPT and Gemini. With past experience as a Finance Manager, I bring strong analytical and communication skills and aim to build a career in data analytics or business intelligence, turning data into meaningful business insights.";
+// Featured Project Section (RAG Chatbot)
+export const FEATURED_VIDEO_ID = "0f653162-e4a6-46d3-be1f-fb8b81095404"; 
+export const FEATURED_PROJECT_LINK = "https://www.veed.io/view/0f653162-e4a6-46d3-be1f-fb8b81095404";
+export const FEATURED_PROJECT_TITLE = "RAG AI Chatbot";
+export const FEATURED_PROJECT_SUBTITLE = "Retrieval-Augmented Generation System";
+export const FEATURED_PROJECT_DESC = "A state-of-the-art AI chatbot that bridges the gap between generic LLMs and custom data. By utilizing Retrieval-Augmented Generation (RAG), this system fetches precise information from a dedicated knowledge base to provide accurate, context-aware answers in real-time.";
+export const FEATURED_PROJECT_FEATURES = [
+  "Context-Aware Responses using LangChain",
+  "Vector Database Integration",
+  "Interactive Streamlit Interface",
+  "Real-time Document Processing"
+];
 
 // Contact Information
 export const CONTACT_INFO = {
@@ -31,6 +42,7 @@ export const CONTACT_INFO = {
 export const NAV_LINKS: NavLink[] = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'featured', label: 'Featured' },
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
@@ -91,8 +103,9 @@ export const PROJECTS: Project[] = [
     description: "A cutting-edge Retrieval-Augmented Generation (RAG) chatbot capable of answering queries from custom knowledge bases. Deployed on Streamlit for real-time, context-aware interaction.",
     technologies: ["Generative AI", "LangChain", "Python", "Streamlit", "Vector DB"],
     liveLink: "https://ragproject-rahul.streamlit.app/",
-    presentationLink: "https://rag-presentation-dashboard.vercel.app/",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000", 
+    presentationLink: "https://www.linkedin.com/posts/rahul-dahiya-ds-aspirant_ai-rag-generativeai-activity-7398357712406892544-gp_V?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUyNGoBnMVu2bz4CTHxXZ0BNnm5cAwdZok",
+    dashboardLink: "https://rag-presentation-dashboard.vercel.app/",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000",
   },
   {
     title: "Spam vs Non-Spam Classifier",
@@ -115,7 +128,7 @@ export const PROJECTS: Project[] = [
     description: "A sentiment analysis engine that processes movie reviews to determine audience reactions. It classifies feedback as positive or negative, providing visual insights into audience sentiment.",
     technologies: ["NLP", "Python", "Deep Learning", "Data Visualization"],
     liveLink: "https://movie-review-classification.vercel.app/",
-    notebookLink: "https://colab.research.google.com/drive/1HInNf4iNANjuSs6K2-Y-khlqlrL8JSN3?usp=sharing",
-    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1000",
+    notebookLink: "https://colab.research.google.com/drive/1...", 
+    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1000",
   },
 ];
