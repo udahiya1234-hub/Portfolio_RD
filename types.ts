@@ -25,6 +25,15 @@ export interface Project {
   image: string;
 }
 
+export interface Certification {
+  title: string;
+  issuer: string;
+  date: string;
+  link: string;
+  image?: string;
+  skills?: string[];
+}
+
 export interface NavLink {
   id: string;
   label: string;

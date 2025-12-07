@@ -1,5 +1,6 @@
 
-import { Skill, EducationEntry, Project, NavLink } from './types';
+
+import { Skill, EducationEntry, Project, NavLink, Certification } from './types';
 
 // Hero Section
 export const NAME = "Rahul Dahiya";
@@ -42,10 +43,10 @@ export const CONTACT_INFO = {
 export const NAV_LINKS: NavLink[] = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'featured', label: 'Featured' },
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
+  { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -96,6 +97,18 @@ export const EDUCATION: EducationEntry[] = [
   },
 ];
 
+// Certifications
+export const CERTIFICATIONS: Certification[] = [
+  {
+    title: "AWS Skills Centers: Computer Foundations – Part 1",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2025",
+    link: "https://i.ibb.co/tMNz3LNH/Screenshot-2025-12-07-135719.png",
+    image: "https://i.ibb.co/tMNz3LNH/Screenshot-2025-12-07-135719.png", 
+    skills: ["Computer Hardware", "Networking Basics", "IT Fundamentals"]
+  }
+];
+
 // Projects
 export const PROJECTS: Project[] = [
   {
@@ -128,7 +141,7 @@ export const PROJECTS: Project[] = [
     description: "A sentiment analysis engine that processes movie reviews to determine audience reactions. It classifies feedback as positive or negative, providing visual insights into audience sentiment.",
     technologies: ["NLP", "Python", "Deep Learning", "Data Visualization"],
     liveLink: "https://movie-review-classification.vercel.app/",
-    notebookLink: "https://colab.research.google.com/drive/1...", 
+    notebookLink: "https://colab.research.google.com/drive/1HInNf4iNANjuSs6K2-Y-khlqlrL8JSN3?usp=sharing", 
     image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1000",
   },
 ];
