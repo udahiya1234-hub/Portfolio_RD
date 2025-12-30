@@ -85,14 +85,14 @@ export const EDUCATION: EducationEntry[] = [
     degree: "Data Science Course",
     field: "Data Analytics & AI",
     institution: "Career 247",
-    years: "2023 - Present",
+    years: "2025 - Present",
     grade: "Ongoing",
   },
   {
     degree: "B.Sc. Mathematics (Honours)",
     field: "Mathematics & Statistics",
     institution: "Delhi University",
-    years: "2016 - 2019",
+    years: "2014 - 2017",
     grade: "First Division",
   },
 ];
@@ -111,6 +111,13 @@ export const CERTIFICATIONS: Certification[] = [
 
 // Projects
 export const PROJECTS: Project[] = [
+  {
+    title: "SHL Assessment Engine",
+    description: "An intelligent recommendation system designed to match candidates with the most suitable SHL assessments based on job roles and skill requirements. Streamlines the talent acquisition process with data-driven insights.",
+    technologies: ["Recommendation System", "Machine Learning", "Web App", "Analytics"],
+    dashboardLink: "https://shl-assessment-recommendation-engin-eta.vercel.app/",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000",
+  },
   {
     title: "RAG AI Chatbot",
     description: "A cutting-edge Retrieval-Augmented Generation (RAG) chatbot capable of answering queries from custom knowledge bases. Deployed on Streamlit for real-time, context-aware interaction.",
