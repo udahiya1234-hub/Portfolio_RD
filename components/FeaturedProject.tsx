@@ -53,7 +53,7 @@ const FeaturedProject: React.FC = () => {
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl opacity-20 blur-lg group-hover:opacity-40 transition duration-1000"></div>
                     <div className="relative h-full bg-slate-900 rounded-xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col">
                         <div className="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-md text-white text-[10px] px-3 py-1.5 rounded-md font-mono border border-white/10 uppercase tracking-wider">
-                            > parsing_resumes.py --status=active
+                            &gt; parsing_resumes.py --status=active
                         </div>
                         <img 
                             src={FEATURED_PROJECT_IMAGE}
