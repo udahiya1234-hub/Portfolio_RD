@@ -17,17 +17,31 @@ export const ABOUT_ME_PARAGRAPH_2 = "Currently, I am expanding my expertise in P
 export const PROFILE_IMAGE = "https://i.ibb.co/XfMkh7hq/profile.png"; 
 export const ABOUT_IMAGE = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200";
 
-// Featured Project Section (RAG Chatbot)
-export const FEATURED_VIDEO_ID = "0f653162-e4a6-46d3-be1f-fb8b81095404"; 
-export const FEATURED_PROJECT_LINK = "https://www.veed.io/view/0f653162-e4a6-46d3-be1f-fb8b81095404";
-export const FEATURED_PROJECT_TITLE = "RAG AI Chatbot";
-export const FEATURED_PROJECT_SUBTITLE = "Retrieval-Augmented Generation System";
-export const FEATURED_PROJECT_DESC = "A state-of-the-art AI chatbot that bridges the gap between generic LLMs and custom data. By utilizing Retrieval-Augmented Generation (RAG), this system fetches precise information from a dedicated knowledge base to provide accurate, context-aware answers in real-time.";
-export const FEATURED_PROJECT_FEATURES = [
-  "Context-Aware Responses using LangChain",
-  "Vector Database Integration",
-  "Interactive Streamlit Interface",
-  "Real-time Document Processing"
+// Featured Project Section (Capstone Project)
+export const FEATURED_PROJECT_TITLE = "AI Candidate-Role Matching System";
+export const FEATURED_PROJECT_SUBTITLE = "Automated Resume Screening & Ranking Pipeline";
+export const FEATURED_PROJECT_DESC = "A sophisticated candidate-role matching solution designed to efficiently identify suitable candidates from a pool of 5,000 parsed resumes. The system leverages NLP-based preprocessing (TF-IDF) and Cosine Similarity to quantify the match between candidates and job descriptions.";
+// Using a data-heavy dashboard image to match the "Project Dashboard" theme
+export const FEATURED_PROJECT_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426"; 
+export const FEATURED_PROJECT_DASHBOARD_LINK = "https://capstone-project-pi-eosin.vercel.app/";
+export const FEATURED_PROJECT_NOTEBOOK_LINK = "https://colab.research.google.com/drive/1CS4uSd442dyPsxOZXkhvsB-D_sBc_p2o?usp=sharing";
+
+// New structured data for the redesigned section
+export const FEATURED_PROJECT_STATS = [
+  { label: "Resumes Processed", value: "5,000", sub: "Parsed & Vectorized" },
+  { label: "Avg. Similarity", value: "0.11", sub: "Across Top Matches" },
+  { label: "Primary Domains", value: "6", sub: "IT, Data Science, HR..." },
+  { label: "Experience Range", value: "1-20 Yrs", sub: "Avg: 6.7 Years" }
+];
+
+export const FEATURED_PROJECT_GOALS = {
+  problem: "Manual screening of thousands of resumes is time-consuming and prone to bias. Recruiters struggle to match semantic skills with job descriptions.",
+  solution: "An automated pipeline that cleans data, extracts features using TF-IDF, and ranks candidates based on vector similarity scores.",
+  outcome: "Successfully identifies top candidates with high precision in experience and domain alignment, reducing initial screening time significantly."
+};
+
+export const FEATURED_PROJECT_TECH_STACK = [
+  "Python", "Pandas", "Scikit-Learn", "NLTK", "TF-IDF", "Cosine Similarity", "Seaborn"
 ];
 
 // Contact Information
@@ -35,14 +49,15 @@ export const CONTACT_INFO = {
   phone: "+91-80101-66244",
   email: "udahiya1234@gmail.com",
   location: "Mundka, New Delhi",
-  linkedin: "https://www.linkedin.com/in/rahul-dahiya", // Update this with your actual LinkedIn ID
-  github: "https://github.com/rahuldahiya", // Update this with your actual GitHub ID
+  linkedin: "https://www.linkedin.com/in/rahul-dahiya", 
+  github: "https://github.com/rahuldahiya", 
 };
 
 // Navigation Links
 export const NAV_LINKS: NavLink[] = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'featured', label: 'Capstone' }, // Highlighted Capstone
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },

@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -5,6 +7,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Projects from './components/Projects';
+import FeaturedProject from './components/FeaturedProject';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -62,6 +65,7 @@ const App: React.FC = () => {
         <main className="flex-grow pt-[72px] md:pt-[80px]">
           <Hero onContactClick={() => handleNavLinkClick('contact')} />
           <About />
+          <FeaturedProject />
           <Skills />
           <Education />
           <Projects />
