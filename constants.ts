@@ -20,13 +20,14 @@ export const ABOUT_IMAGE = "https://images.unsplash.com/photo-1551288049-bebda4e
 // Featured Project Section (Capstone Project)
 export const FEATURED_PROJECT_TITLE = "AI Candidate-Role Matching System";
 export const FEATURED_PROJECT_SUBTITLE = "Automated Resume Screening & Ranking Pipeline";
-export const FEATURED_PROJECT_DESC = "A sophisticated candidate-role matching solution designed to efficiently identify suitable candidates from a pool of 5,000 parsed resumes. The system leverages NLP-based preprocessing (TF-IDF) and Cosine Similarity to quantify the match between candidates and job descriptions.";
-// Using a data-heavy dashboard image to match the "Project Dashboard" theme
+// Updated to match your exact summary text
+export const FEATURED_PROJECT_DESC = "A candidate-role matching solution designed to efficiently identify suitable candidates from a pool of 5,000 parsed resumes. The system leverages NLP-based preprocessing (TF-IDF) and Cosine Similarity to quantify the match between candidates and job descriptions.";
+
 export const FEATURED_PROJECT_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426"; 
 export const FEATURED_PROJECT_DASHBOARD_LINK = "https://capstone-project-pi-eosin.vercel.app/";
 export const FEATURED_PROJECT_NOTEBOOK_LINK = "https://colab.research.google.com/drive/1CS4uSd442dyPsxOZXkhvsB-D_sBc_p2o?usp=sharing";
 
-// New structured data for the redesigned section
+// Exact metrics from your overview
 export const FEATURED_PROJECT_STATS = [
   { label: "Resumes Processed", value: "5,000", sub: "Parsed & Vectorized" },
   { label: "Avg. Similarity", value: "0.11", sub: "Across Top Matches" },
@@ -40,6 +41,7 @@ export const FEATURED_PROJECT_GOALS = {
   outcome: "Successfully identifies top candidates with high precision in experience and domain alignment, reducing initial screening time significantly."
 };
 
+// Exact tech stack from your overview
 export const FEATURED_PROJECT_TECH_STACK = [
   "Python", "Pandas", "Scikit-Learn", "NLTK", "TF-IDF", "Cosine Similarity", "Seaborn"
 ];
@@ -57,7 +59,7 @@ export const CONTACT_INFO = {
 export const NAV_LINKS: NavLink[] = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'featured', label: 'Capstone' }, // Highlighted Capstone
+  { id: 'featured', label: 'Capstone' }, 
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
