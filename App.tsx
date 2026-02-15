@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -8,6 +7,7 @@ import Skills from './components/Skills';
 import Education from './components/Education';
 import Projects from './components/Projects';
 import FeaturedProject from './components/FeaturedProject';
+import FeaturedCertification from './components/FeaturedCertification';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -69,7 +69,11 @@ const App: React.FC = () => {
           <Skills />
           <Education />
           <Projects />
-          <Certifications />
+          {/* Certificate Section Group */}
+          <div className="bg-slate-50 dark:bg-slate-900/50">
+             <FeaturedCertification />
+             <Certifications />
+          </div>
           <Contact />
         </main>
         <Footer />

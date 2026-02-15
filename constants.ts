@@ -20,14 +20,12 @@ export const ABOUT_IMAGE = "https://images.unsplash.com/photo-1551288049-bebda4e
 // Featured Project Section (Capstone Project)
 export const FEATURED_PROJECT_TITLE = "AI Candidate-Role Matching System";
 export const FEATURED_PROJECT_SUBTITLE = "Automated Resume Screening & Ranking Pipeline";
-// Updated to match your exact summary text
 export const FEATURED_PROJECT_DESC = "A candidate-role matching solution designed to efficiently identify suitable candidates from a pool of 5,000 parsed resumes. The system leverages NLP-based preprocessing (TF-IDF) and Cosine Similarity to quantify the match between candidates and job descriptions.";
 
 export const FEATURED_PROJECT_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426"; 
 export const FEATURED_PROJECT_DASHBOARD_LINK = "https://capstone-project-pi-eosin.vercel.app/";
 export const FEATURED_PROJECT_NOTEBOOK_LINK = "https://colab.research.google.com/drive/1CS4uSd442dyPsxOZXkhvsB-D_sBc_p2o?usp=sharing";
 
-// Exact metrics from your overview
 export const FEATURED_PROJECT_STATS = [
   { label: "Resumes Processed", value: "5,000", sub: "Parsed & Vectorized" },
   { label: "Avg. Similarity", value: "0.11", sub: "Across Top Matches" },
@@ -41,7 +39,6 @@ export const FEATURED_PROJECT_GOALS = {
   outcome: "Successfully identifies top candidates with high precision in experience and domain alignment, reducing initial screening time significantly."
 };
 
-// Exact tech stack from your overview
 export const FEATURED_PROJECT_TECH_STACK = [
   "Python", "Pandas", "Scikit-Learn", "NLTK", "TF-IDF", "Cosine Similarity", "Seaborn"
 ];
@@ -59,11 +56,11 @@ export const CONTACT_INFO = {
 export const NAV_LINKS: NavLink[] = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'credential', label: 'Certificate' },
   { id: 'featured', label: 'Capstone' }, 
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
-  { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -99,11 +96,11 @@ export const SKILLS: Skill[] = [
 // Education
 export const EDUCATION: EducationEntry[] = [
   {
-    degree: "Data Science Course",
-    field: "Data Analytics & AI",
+    degree: "Data Science and Machine Learning with GenAi",
+    field: "Data Science, ML & Generative AI",
     institution: "Career 247",
-    years: "2025 - Present",
-    grade: "Ongoing",
+    years: "2025 - 2026",
+    grade: "Completed",
   },
   {
     degree: "B.Sc. Mathematics (Honours)",
@@ -114,7 +111,20 @@ export const EDUCATION: EducationEntry[] = [
   },
 ];
 
-// Certifications
+// Featured Certificate (Highlights separate from list)
+export const FEATURED_CERT = {
+  title: "Data Science and Machine Learning with GenAi",
+  issuer: "Career 247",
+  date: "2025 - 2026",
+  credentialId: "C2472317",
+  link: "https://career247.edmingle.com/verify/C2472317",
+  // Updated with the new high-quality user provided image.
+  image: "https://i.ibb.co/Y7yvybfF/Screenshot-2026-02-14-223717.png",
+  description: "A comprehensive certification covering the end-to-end data science lifecycle, from statistical analysis and machine learning algorithms to cutting-edge Generative AI applications.",
+  skills: ["Python", "Machine Learning", "Generative AI", "NLP", "Data Analytics"]
+};
+
+// Other Certifications
 export const CERTIFICATIONS: Certification[] = [
   {
     title: "AWS Skills Centers: Computer Foundations – Part 1",
