@@ -61,6 +61,7 @@ export const NAV_LINKS: NavLink[] = [
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
+  { id: 'powerbi', label: 'Power BI' },
   { id: 'contact', label: 'Contact' },
 ];
 

@@ -6,6 +6,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Projects from './components/Projects';
+import PowerBIProjects from './components/PowerBIProjects';
 import FeaturedProject from './components/FeaturedProject';
 import FeaturedCertification from './components/FeaturedCertification';
 import Certifications from './components/Certifications';
@@ -74,6 +75,7 @@ const App: React.FC = () => {
              <FeaturedCertification />
              <Certifications />
           </div>
+          <PowerBIProjects />
           <Contact />
         </main>
         <Footer />
